@@ -130,7 +130,8 @@ Requires:       %{name}-libs = %{epoch_dep}%{version}-%{release}
 Python 3 bindings for the createrepo_c library.
 
 %prep
-%autosetup -p1
+%setup -n %{name}
+%autopatch -p1
 %py3_shebang_fix examples/python
 mkdir build-py3
 
