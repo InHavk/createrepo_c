@@ -60,7 +60,7 @@ fi
 echo "Copying done"
 
 echo "> Starting rpmbuild $PACKAGE.."
-rpmbuild -ba "$RPMBUILD_DIR/SPECS/$PACKAGE.spec"
+rpmbuild -ba --define "gitrev $GITREV" "$RPMBUILD_DIR/SPECS/$PACKAGE.spec"
 if [ ! $? == "0" ]; then
     echo "Error while: rpmbuild -ba $RPMBUILD_DIR/SPECS/$PACKAGE.spec"
     exit 1

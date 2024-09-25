@@ -38,7 +38,11 @@ Version:        1.1.4
 Release:        1%{?dist}
 License:        GPL-2.0-or-later
 URL:            https://github.com/rpm-software-management/createrepo_c
+%if "%{?gitrev}" == ""
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.xz
+%else
+Source0:        %{name}-%{gitrev}.tar.xz
+%endif
 
 %global epoch_dep %{?epoch:%{epoch}:}
 
